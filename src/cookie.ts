@@ -1,4 +1,3 @@
-import Utils from "./utils";
 import CONSTANTS from "./constants";
 import {CookieOption} from "./interfaces";
 
@@ -36,13 +35,9 @@ export default class Cookie {
 		if (value === undefined || value === null) return false;
 
 		try {
-			let svalue: any = value;
-			if (Utils.isString(value) || Utils.isNumber(value) || Utils.isBoolean(value)) {
-				svalue = String(value);
-			} else if (Utils.isArray(value) || Utils.isObject(value)) {
-				svalue = JSON.stringify(value);
-			}
-			document.cookie = `${key}=${svalue}; ${this._setExpires(expires)}; ${this._setPath(path)}`;
+			document.cookie = (function (value: string) {
+				return `${key}=${value}; ${Cookie._setExpires(expires)}; ${Cookie._setPath(path)}`;
+			})(JSON.stringify(value));
 			return true;
 		} catch (ex) {
 			throw `Cookie's setItem error: ${JSON.stringify(ex)}!`;
@@ -97,7 +92,7 @@ export default class Cookie {
 
 		try {
 			if (!value) return null;
-			return <T>value;
+			return <T>JSON.parse(value);
 		} catch (ex) {
 			throw "Cookie deserialization failed!";
 		}
