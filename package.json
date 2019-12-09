@@ -1,6 +1,6 @@
 {
     "name": "jts-cookie",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Caojianping's cookie library.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

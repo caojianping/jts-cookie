@@ -42,7 +42,7 @@ export default class Cookie {
 			} else if (Utils.isArray(value) || Utils.isObject(value)) {
 				svalue = JSON.stringify(value);
 			}
-			document.cookie = `${key}=${svalue};${this._setExpires(expires)};${this._setPath(path)}`;
+			document.cookie = `${key}=${svalue}; ${this._setExpires(expires)}; ${this._setPath(path)}`;
 			return true;
 		} catch (ex) {
 			throw `Cookie's setItem error: ${JSON.stringify(ex)}!`;
@@ -69,7 +69,7 @@ export default class Cookie {
 
 		let result: Array<string> = [];
 		for (let i = 0; i < parts.length; i++) {
-			let part = parts[i];
+			let part = (parts[i] || "").trim();
 			result.push(part.substring(0, part.indexOf("=")));
 		}
 		return result;
@@ -88,7 +88,7 @@ export default class Cookie {
 
 		let value: any = "";
 		for (let i = 0; i < parts.length; i++) {
-			let part = parts[i];
+			let part = (parts[i] || "").trim();
 			if (part.indexOf(key) === 0) {
 				value = part.substring(key.length, part.length);
 				break;
