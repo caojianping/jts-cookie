@@ -1,7 +1,8 @@
-import CookieOption from "./interfaces";
+import {CookieStore, CookieOption} from "./interfaces";
 import Cookie from "./cookie";
 
 export {
-    CookieOption,
-    Cookie
+	CookieStore,
+	CookieOption,
+	Cookie
 };

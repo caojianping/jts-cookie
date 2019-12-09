@@ -62,4 +62,5 @@ typings/
 
 .idea/
 dist/
+demo/
 package-lock.json
