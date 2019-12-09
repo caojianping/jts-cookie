@@ -35,8 +35,8 @@ export default class Cookie {
 		if (value === undefined || value === null) return false;
 
 		try {
-			document.cookie = (function (value: string) {
-				return `${key}=${value}; ${Cookie._setExpires(expires)}; ${Cookie._setPath(path)}`;
+			document.cookie = (function (svalue: string) {
+				return `${key}=${svalue}; ${Cookie._setExpires(expires)}; ${Cookie._setPath(path)}`;
 			})(JSON.stringify(value));
 			return true;
 		} catch (ex) {
