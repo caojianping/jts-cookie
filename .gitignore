@@ -60,7 +60,7 @@ typings/
 # next.js build output
 .next
 
-.idea/
-dist/
-demo/
+/.idea
+/dist
 package-lock.json
+yarn-lock.json
