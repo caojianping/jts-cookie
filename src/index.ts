@@ -1,8 +1,4 @@
-import {CookieStore, CookieOption} from "./interfaces";
-import Cookie from "./cookie";
+import { CookieStore, CookieOption } from './interfaces';
+import Cookie from './cookie';
 
-export {
-	CookieStore,
-	CookieOption,
-	Cookie
-};
+export { CookieStore, CookieOption, Cookie };

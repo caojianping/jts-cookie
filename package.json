@@ -1,7 +1,7 @@
 {
     "name": "jts-cookie",
-    "version": "1.0.5",
-    "description": "Caojianping's cookie library.",
+    "version": "1.0.6",
+    "description": "Cookie的TypeScript封装，提供通用的API方法，同时支持泛型方法。",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -28,5 +28,10 @@
     "dependencies": {},
     "devDependencies": {
         "typescript": "^3.6.2"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": true
     }
 }

@@ -1,5 +1,6 @@
 # jts-cookie
-Caojianping's cookie library.
+
+Cookie的TypeScript封装，提供通用的API方法，同时支持泛型方法。
 
 ## Installing
 Using npm:
@@ -16,15 +17,18 @@ $ yarn add jts-cookie
 ```ts
 import {Cookie, CookieOption, CookieStore} from 'jts-cookie';
 
-// test for Cookie
 const key1 = 'cookie_number';
-Cookie.setItem<number>(key1, 666888, 3600 * 1000 * 2);// return true/false;
+const value1 = 666888;
+const expires1 = 3600 * 1000 * 2;// 过期时间
+Cookie.setItem<number>(key1, value1, expires1);// return true/false;
 Cookie.getItem<number>(key1);// return 666888/null;
 Cookie.removeItem(key1);// return true/false;
 
 const key2 = 'cookie_string';
-Cookie.setItem<string>(key2, 'hello world', 3600 * 1000 * 2);// return true/false;
-Cookie.getItem<string>(key2);// return hello world/null;
+const value2 = 'hello world';
+const expires2 = 3600 * 1000 * 2;
+Cookie.setItem<string>(key2, value2, expires2);// return true/false;
+Cookie.getItem<string>(key2);// return 'hello world'/null;
 Cookie.removeItem(key2);// return true/false;
 
 Cookie.getAllKeys();// return ['cookie_number', 'cookie_string']
@@ -33,7 +37,7 @@ Cookie.getAllKeys();// return ['cookie_number', 'cookie_string']
 ## API
 ```ts
 /**
- * Cookie选项接口
+ * Cookie选项
  */
 export interface CookieOption {
 	key: string;
@@ -53,7 +57,7 @@ export class CookieStore<T> {
 	}
 }
 ```
-##### Cookie.setItem<T>(key: string, value: T [, expires: number = 2 hours] [, path: string]): boolean
+##### Cookie.setItem<T>(key: string, value: T [, expires: number] [, path: string]): boolean
 ##### Cookie.setItems(options: Array<CookieOption>): boolean
 ##### Cookie.getItem<T>(key: string): T | null
 ##### Cookie.getAllKeys(): Array<string>
